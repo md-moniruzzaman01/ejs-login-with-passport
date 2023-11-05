@@ -18,8 +18,11 @@ const passport = require('passport');
 const app = express();
 app.set("view engine", "ejs");
 
+require("dotenv").config();
+
 // DB Config
 const db = require("./config/keys").mongoURI;
+
 
 // Connect to MongoDB
 mongoose
@@ -30,7 +33,6 @@ mongoose
 // middleware
 
 require('./config/passport')(passport);
-require("dotenv").config();
 
 
 

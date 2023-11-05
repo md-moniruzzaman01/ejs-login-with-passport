@@ -1,5 +1,5 @@
 
-dbPassword = 'mongodb+srv://srproject007:'+ encodeURIComponent('c00LR5mBlP2QVAha') + '@cluster0.mpplrni.mongodb.net?retryWrites=true';
+let dbPassword = `mongodb+srv://${process.env.DataBase_USER_NAME}:${process.env.DataBase_PASSWORD}`+'@cluster0.mpplrni.mongodb.net?retryWrites=true';
 
 module.exports = {
     mongoURI: dbPassword
