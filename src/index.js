@@ -57,7 +57,7 @@ app.use(passport.session());
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static("public"));
 
 
 // globle variable
