@@ -1,0 +1,16 @@
+<%- include("Layout/header"); -%>
+
+<main>
+  <h1>User List</h1>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        <p>Name: <%= user.name %></p>
+        <p>Email: <%= user.email %></p>
+        <!-- Add more user details as needed -->
+      </li>
+    <% }); %>
+  </ul>
+</main>
+
+<%- include("Layout/footer"); -%>

@@ -1,0 +1,81 @@
+<%- include("Layout/header"); -%>
+
+<style>
+  /* Default style for input fields */
+.input-field {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for input fields with errors */
+.input-field.error {
+  border: 2px solid red;
+}
+
+/* Error message style */
+.error-message {
+  color: red;
+}
+
+</style>
+<main style="background-color: #f2f2f2; min-height: 80vh; display: flex; align-items: center;"> 
+  <!-- Register form -->
+  <form action="/register" method="post" style="width: 500px; padding: 20px; background-color: #fff; border: 1px solid #ccc; margin: 0 auto; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="text-align: center; color: #333; margin-top: 0;">Register Here</h1>
+    <p style="color: #777; margin-bottom: 20px; text-align: center;">Please fill in the details to create an account with us.</p>
+    <hr style="margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #ccc;">
+
+
+    <div style="display: flex; flex-direction: column; ">
+<!-- Name field -->
+<!-- Name field -->
+<label for="name" style="display: block; margin-bottom: 10px; color: #333;"><b>Enter Name</b></label>
+<input type="text" class="input-field <%= errors.find(error => error.param === 'name') ? 'error' : '' %>" placeholder="Enter name" name="name" value="<%= name %>">
+<% if (errors.find(error => error.param === 'name')) { %>
+  <p class="error-message"><%= errors.find(error => error.param === 'name').msg %></p>
+<% } %>
+
+
+ <!-- Email field -->
+<label for="email" style="display: block; margin-bottom: 10px; color: #333;" ><b>Enter Email</b></label>
+<input type="email" class="input-field <%= errors.find(error => error.param === 'email') ? 'error' : '' %>"  placeholder="Enter Email" name="email" value="<%= email %>">
+<% if (errors.find(error => error.param === 'email')) { %>
+  <p class="error-message"><%= errors.find(error => error.param === 'email').msg %></p>
+<% } %>
+
+
+<!-- Password field -->
+<label for="password" style="display: block; margin-bottom: 10px; color: #333;"><b>Password</b></label>
+<input type="password" class="input-field <%= errors.find(error => error.param === 'password') ? 'error' : '' %>"  placeholder="Enter Password" name="password" value="<%= password %>">
+<% if (errors.find(error => error.param === 'password')) { %>
+  <p class="error-message"><%= errors.find(error => error.param === 'password').msg %></p>
+<% } %>
+
+<!-- Confirm password field -->
+<label for="confirm" style="display: block; margin-bottom: 10px; color: #333;"><b>Confirm Password</b></label>
+<input type="password" class="input-field <%= errors.find(error => error.param === 'confirm') ? 'error' : '' %>"  placeholder="Confirm Password" name="confirm" value="<%= confirm %>">
+<% if (errors.find(error => error.param === 'confirm')) { %>
+  <p class="error-message"><%= errors.find(error => error.param === 'confirm').msg %></p>
+<% } %>
+
+      <hr>
+      <!-- Term and condition -->
+      <p>By creating an account you agree to our <a href="#" style="color: #337ab7;text-decoration: none; ">Terms & Privacy</a>.</p>
+
+
+
+      <!-- Register submit button -->
+      <button type="submit" class="registerbtn" style="display: block; width: 100%; padding: 10px;background-color: #4CAF50; margin-top: 20px; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;"><strong>Register</strong></button>
+      </div>
+
+      <div style="color: #777; text-align: center;">
+      <p>Already have an account? <a href="/login" style="color: #337ab7;text-decoration: none; ">Sign in</a>.</p>
+      </div>
+    </div>
+  </form>
+</main>
+
+<%- include("Layout/footer"); -%>
